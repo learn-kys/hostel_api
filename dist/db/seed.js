@@ -23,22 +23,22 @@ function main() {
             // 1. Seed Owners
             console.log('Seeding owners...');
             const owners = yield index_1.db.insert(schema_1.hostelOwnerTable).values([
-                { name: 'John Doe', age: 45, email: 'john.doe@example.com' },
-                { name: 'Jane Smith', age: 38, email: 'jane.smith@example.com' },
+                { name: 'amit kumar', age: 45, email: 'amit@gmail.com' },
+                { name: 'Raman Kumar', age: 38, email: 'raman123@gmail.com' },
             ]).returning();
             // 2. Seed Hostels
             console.log('Seeding hostels...');
             const hostels = yield index_1.db.insert(schema_1.hostelTable).values([
                 {
-                    name: 'Sunshine Hostel',
-                    address: '123 Sunny St, Beachville',
-                    own_number: '+1234567890',
+                    name: 'Roohi Hostel',
+                    address: 'Danapur',
+                    own_number: '+919122080561',
                     owner_id: owners[0].id,
                 },
                 {
-                    name: 'Mountain View Lodge',
-                    address: '456 Pine Rd, PeakTown',
-                    own_number: '+1987654321',
+                    name: 'Aadarsh Hostel',
+                    address: 'Patna Junction',
+                    own_number: '+91987654321',
                     owner_id: owners[1].id,
                 },
             ]).returning();
@@ -51,17 +51,17 @@ function main() {
                     capacity: 2,
                     room_rent: 500,
                     after_discount_rent: 450,
-                    room_description: 'Cozy double room near the entrance.',
+                    room_description: 'Best hostel in town',
                     facilities: ['AC', 'WiFi', 'TV'],
                     hostel_id: hostels[0].id,
                 },
                 {
-                    floor: '1st',
+                    floor: '2nd',
                     roomNo: '102',
                     capacity: 4,
                     room_rent: 800,
                     after_discount_rent: 750,
-                    room_description: 'Spacious room for a group.',
+                    room_description: 'Best for group',
                     facilities: ['AC', 'WiFi', 'Washing Machine'],
                     hostel_id: hostels[0].id,
                 },
@@ -71,7 +71,7 @@ function main() {
                     capacity: 1,
                     room_rent: 300,
                     after_discount_rent: 300,
-                    room_description: 'Quiet single room with mountain view.',
+                    room_description: 'best for focused work',
                     facilities: ['Heater', 'WiFi'],
                     hostel_id: hostels[1].id,
                 }

@@ -8,8 +8,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-    const data = await db.query.hostelRoomTable.findMany();
-    res.json(data);
+  res.json({message: "backend is working"})
 });
 
 // Get all hostel owners with their hostels and rooms
@@ -71,7 +70,10 @@ app.post("/create-owner", async (req, res) => {
       email
     }).returning();
     
-    res.status(201).json(newOwner[0]);
+    res.status(201).json({
+      message: "Hostel owner created successfully",
+      data: newOwner[0]
+    });
   } catch (error: any) {
     res.status(500).json({ error: "Failed to create owner", details: error.message });
   }
@@ -94,7 +96,10 @@ app.post("/create-hostel", async (req, res) => {
       owner_id
     }).returning();
     
-    res.status(201).json(newHostel[0]);
+    res.status(201).json({
+      message: "Hostel created successfully",
+      data: newHostel[0]
+    });
   } catch (error: any) {
     res.status(500).json({ error: "Failed to create hostel", details: error.message });
   }
@@ -121,7 +126,10 @@ app.post("/create-room", async (req, res) => {
       hostel_id
     }).returning();
     
-    res.status(201).json(newRoom[0]);
+    res.status(201).json({
+      message: "Room created successfully",
+      data: newRoom[0]
+    });
   } catch (error: any) {
     res.status(500).json({ error: "Failed to create room", details: error.message });
   }

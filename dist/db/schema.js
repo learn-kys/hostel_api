@@ -3,12 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.hostelRoomRelations = exports.hostelRelations = exports.hostelOwnerRelations = exports.hostelRoomTable = exports.hostelTable = exports.hostelOwnerTable = void 0;
 const drizzle_orm_1 = require("drizzle-orm");
 const pg_core_1 = require("drizzle-orm/pg-core");
-// export const usersTable = pgTable("users", {
-//   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-//   name: varchar({ length: 255 }).notNull(),
-//   age: integer().notNull(),
-//   email: varchar({ length: 255 }).notNull().unique(),
-// });
 exports.hostelOwnerTable = (0, pg_core_1.pgTable)("hostel_owner", {
     id: (0, pg_core_1.integer)().primaryKey().generatedAlwaysAsIdentity(),
     name: (0, pg_core_1.varchar)({ length: 255 }).notNull(),
